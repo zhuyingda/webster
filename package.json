@@ -1,0 +1,32 @@
+{
+  "name": "webster",
+  "version": "1.0.2",
+  "description": "a reliable high-level web crawling & scraping framework for Node.js.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhuyingda/webster.git"
+  },
+  "keywords": [
+    "spider",
+    "crwal",
+    "scrape",
+    "grab"
+  ],
+  "author": "zhuyingda",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/zhuyingda/webster/issues"
+  },
+  "homepage": "https://github.com/zhuyingda/webster#readme",
+  "dependencies": {
+    "jsdom": "^11.3.0",
+    "puppeteer": "^0.12.0",
+    "redis": "^2.8.0",
+    "request": "^2.83.0",
+    "uuid": "^3.1.0"
+  }
+}
