@@ -21,7 +21,7 @@ Producer side:
 ```javascript
 const Webster = require('webster');
 const Producer = Webster.producer;
-const Task = webster.task;
+const Task = Webster.task;
 let tasks = [];
 
 tasks.push(new Task({
@@ -92,7 +92,7 @@ class MyConsumer extends Consumer {
 }
 
 let myConsumer = new MyConsumer({
-    channel: 'douban',
+    channel: 'baidu',
     sleepTime: 5000,
     deviceType: 'pc',
     dbConf: {
