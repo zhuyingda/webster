@@ -13,4 +13,39 @@
  * SOFTWARE.
  */
 
+const log4js = require('log4js');
+const path = require('path');
+
+let configOption = {
+    appenders: {
+        webster: {}
+    },
+    categories: {
+        default: {
+            appenders: ['webster']
+        }
+    }
+};
+if (process.env.MOD === 'debug') {
+    configOption.appenders.webster = {
+        type: 'stdout'
+    };
+    configOption.categories.default.level = 'debug';
+}
+else if (process.env.MOD === 'trace') {
+    configOption.appenders.webster = {
+        type: 'stdout'
+    };
+    configOption.categories.default.level = 'trace';
+}
+else {
+    configOption.appenders.webster = {
+        type: 'file',
+        filename: path.resolve(process.env.HOME, '.webster/running.log')
+    };
+    configOption.categories.default.level = 'info';
+}
+
+log4js.configure(configOption);
+
 module.exports = require('./lib/Webster');
