@@ -26,17 +26,11 @@ let configOption = {
         }
     }
 };
-if (process.env.MOD === 'debug') {
+if (!!process.env.MOD) {
     configOption.appenders.webster = {
         type: 'stdout'
     };
-    configOption.categories.default.level = 'debug';
-}
-else if (process.env.MOD === 'trace') {
-    configOption.appenders.webster = {
-        type: 'stdout'
-    };
-    configOption.categories.default.level = 'trace';
+    configOption.categories.default.level = process.env.MOD;
 }
 else {
     configOption.appenders.webster = {
