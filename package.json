@@ -1,7 +1,7 @@
 {
   "name": "webster",
-  "version": "1.1.0",
-  "description": "a reliable high-level web crawling & scraping framework for Node.js.",
+  "version": "1.1.1",
+  "description": "a reliable web crawling & scraping framework for Node.js.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
