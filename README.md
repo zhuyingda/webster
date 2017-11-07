@@ -32,18 +32,18 @@ tasks.push(new Task({
         {
             selector: '.result.c-container h3',
             type: 'text',
-            title: 'title'
+            field: 'title'
         },
         {
             selector: '.result.c-container h3 a',
             type: 'attr',
             attrName: 'href',
-            title: 'link'
+            field: 'link'
         },
         {
             selector: '.result.c-container .c-abstract',
             type: 'html',
-            title: 'htmlfrag'
+            field: 'htmlfrag'
         }
     ]
 }));
@@ -56,7 +56,7 @@ tasks.push(new Task({
         {
             selector: '.result.c-container h3',
             type: 'text',
-            title: 'title'
+            field: 'title'
         }
     ]
 }));
