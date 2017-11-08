@@ -25,7 +25,6 @@ const Task = Webster.task;
 let tasks = [];
 
 tasks.push(new Task({
-    channel: 'baidu',
     spiderType: 'browser',
     url: 'https://www.baidu.com/s?wd=javascript',
     targets: [
@@ -49,7 +48,6 @@ tasks.push(new Task({
 }));
 
 tasks.push(new Task({
-    channel: 'baidu',
     spiderType: 'plain',
     url: 'https://www.baidu.com/s?wd=javascript',
     targets: [
