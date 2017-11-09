@@ -1,4 +1,5 @@
 # Webster
+[![npm version](https://badge.fury.io/js/webster.svg)](https://www.npmjs.com/package/webster)
 
 ## Overview
 Webster is a reliable web crawling and scraping framework written with Node.js, used to crawl websites and extract structured data from their pages. Which is different from other crawling framework is that Webster can scrape the content which rendered by browser client side javascript and ajax request.
