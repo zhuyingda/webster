@@ -10,8 +10,7 @@ Which you need to know is that webster is still under development, so some api o
 - If you are intrested about this project;
 - If you want to develop some web crawler program and you prefer javascript than python;
 - Or you just want to have a crawling framework which can scrape asynchronism content in a web page;
-
-**Please star and watch this repository, I am sure that you will not be disappointed at webster**.
+- Please star and watch this repository, I am sure that you will not be disappointed at webster.
 ------
 
 ## Requirements
@@ -139,3 +138,9 @@ In your subclass you can implement your logic after crwal request by override th
 When the channel of the task queue which you are watching is empty, the consumer instance will sleep for 5 second, which you can set by `sleepTime`.
 
 The `deviceType` means that you want to crawl the page by a pc browser or a mobile phone browser, of course these are all fake by our crawler framework. You can set `deviceType` to `pc` or `mobile`.
+
+## License
+
+[GPL-V3](http://www.gnu.org/licenses/)
+
+Copyright (c) 2017-present, Yingda (Sugar) Zhu
