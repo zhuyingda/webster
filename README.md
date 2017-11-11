@@ -10,7 +10,8 @@ Which you need to know is that webster is still under development, so some api o
 - If you are intrested about this project;
 - If you want to develop some web crawler program and you prefer javascript than python;
 - Or you just want to have a crawling framework which can scrape asynchronism content in a web page;
-######Please star and watch this repository, I am sure that you will not be disappointed at **webster**.
+
+**Please star and watch this repository, I am sure that you will not be disappointed at webster**.
 ------
 
 ## Requirements
