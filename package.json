@@ -4,7 +4,7 @@
   "description": "a reliable web crawling & scraping framework for Node.js.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/mocha/bin/mocha test/webster.test.js"
   },
   "repository": {
     "type": "git",
@@ -29,5 +29,8 @@
     "redis": "^2.8.0",
     "request": "^2.83.0",
     "uuid": "^3.1.0"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.1"
   }
 }
