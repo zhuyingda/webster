@@ -115,6 +115,18 @@ class MyConsumer extends Consumer {
     afterCrawlRequest(result) {
         console.log('your scrape result:', result);
     }
+    whenTaskFailed(task) {
+        console.log('your task has failed:', task);
+    }
+    async beforeParseHtml(html) {
+        console.log(/<\/html>/.test(html));
+        if (/<\/html>/.test(html)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }
 
 let myConsumer = new MyConsumer({
@@ -135,6 +147,8 @@ myConsumer.setup();
 This is a consumer demo. You must build a subclass inherit the **Consumer** parent class.
 
 In your subclass you can implement your logic after crwal request by override the parent class method `afterCrawlRequest`. You may write them to db or create another **Producer** to do more things about crawling.
+
+There are two other hook method, *beforeParseHtml* mechod is an asynchronism method, you should give it a boolean return value to identify whether the html is valid for your expectation, *whenTaskFailed* will be invoked when your task is failed because invalid html or some unknown error (if so, please add an issue here) during the crawling.
 
 When the channel of the task queue which you are watching is empty, the consumer instance will sleep for 5 second, which you can set by `sleepTime`.
 
