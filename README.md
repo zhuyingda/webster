@@ -115,8 +115,8 @@ class MyConsumer extends Consumer {
     afterCrawlRequest(result) {
         console.log('your scrape result:', result);
     }
-    whenTaskFailed(task) {
-        console.log('your task has failed:', task);
+    whenTaskFailed(task, reason) {
+        console.log('your task has failed:', task, ', because of:', reason);
     }
     async beforeParseHtml(html) {
         console.log(/<\/html>/.test(html));
