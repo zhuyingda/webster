@@ -24,6 +24,8 @@ npm install webster
 ```
 
 ## Documentation
+You can see more details from [here](http://webster.zhuyingda.com/).
+
 Webster focuses on conurrency, so it is designed by producer-consumer pattern.
 
 ![workflow](https://www.zhuyingda.com/static/img/webster-workflow.svg)
