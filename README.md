@@ -14,6 +14,20 @@ Which you need to know is that webster is still under development, so some api o
 - Please star and watch this repository, I am sure that you will not be disappointed at webster.
 ------
 
+## Docker quick start
+pull the example docker image:
+```bash
+docker pull zhuyingda/webster-demo
+docker run -it zhuyingda/webster-demo
+```
+
+in the docker runtime cli:
+```bash
+cd /root/webster_runtime/
+node demo_producer.js
+node demo_consumer.js
+```
+
 ## Requirements
 - Node.js 8.x+, redis
 - Works on Linux, Mac OSX
