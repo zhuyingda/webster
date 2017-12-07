@@ -5,15 +5,6 @@
 ## Overview
 Webster is a reliable web crawling and scraping framework written with Node.js, used to crawl websites and extract structured data from their pages. Which is different from other crawling framework is that Webster can scrape the content which rendered by browser client side javascript and ajax request.
 
-------
-Which you need to know is that webster is still under development, so some api or method name may change in the future, but the main ideas will not change.
-
-- If you are intrested about this project;
-- If you want to develop some web crawler program and you prefer javascript than python;
-- Or you just want to have a crawling framework which can scrape asynchronism content in a web page;
-- Please star and watch this repository, I am sure that you will not be disappointed at webster.
-------
-
 ## Docker quick start
 pull the example docker image:
 ```bash
@@ -31,6 +22,8 @@ node demo_consumer.js
 ## Requirements
 - Node.js 8.x+, redis
 - Works on Linux, Mac OSX
+
+Or you can deploy on [Docker](https://hub.docker.com/r/zhuyingda/webster-runtime/).
 
 ## Install
 ```bash
