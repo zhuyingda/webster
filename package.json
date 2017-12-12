@@ -21,6 +21,9 @@
   "bugs": {
     "url": "https://github.com/zhuyingda/webster/issues"
   },
+  "engines": {
+    "node": ">=8.0.0"
+  },
   "homepage": "https://github.com/zhuyingda/webster#readme",
   "dependencies": {
     "jsdom": "^11.3.0",
