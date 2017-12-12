@@ -30,12 +30,22 @@ if (!!process.env.MOD) {
     configOption.appenders.webster = {
         type: 'stdout'
     };
-    configOption.categories.default.level = process.env.MOD;
+    if (process.env.MOD === 'browser') {
+        configOption.categories.default.level = 'trace';
+    }
+    else {
+        configOption.categories.default.level = process.env.MOD;
+    }
 }
 else {
+    let curFile = process.mainModule.filename.split('/');
+    curFile = curFile[curFile.length - 1];
+    if (/\.js$/.test(curFile)) {
+        curFile = curFile.replace(/\.js$/, '')
+    }
     configOption.appenders.webster = {
         type: 'file',
-        filename: path.resolve(process.env.HOME, '.webster/running.log')
+        filename: path.resolve(process.env.HOME, `.webster/${curFile}.log`)
     };
     configOption.categories.default.level = 'info';
 }
