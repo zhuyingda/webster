@@ -36,7 +36,7 @@ describe('webster unit test', function() {
     });
 
     describe('task module consumer & producer', function() {
-        this.timeout(15000);
+        this.timeout(55000);
         it('test producer', function (done) {
             const Producer = require('../lib/producer');
             let myProducer = new Producer({
@@ -52,10 +52,10 @@ describe('webster unit test', function() {
             const Task = require('../lib/task');
             let task = new Task({
                 spiderType: 'browser',
-                url: 'https://www.baidu.com/s?wd=javascript',
+                url: 'https://www.zhuyingda.com/blog.html',
                 targets: [
                     {
-                        selector: '.result.c-container h3',
+                        selector: '.blog-item a',
                         type: 'text',
                         field: 'title'
                     }
@@ -82,6 +82,9 @@ describe('webster unit test', function() {
                 sleepTime: 5000,
                 deviceType: 'pc',
                 userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36',
+                customHeaders: {
+                    'Referer': 'http://cp01-zhuyingda.epc.baidu.com'
+                },
                 dbConf: {
                     redis: {
                         host: 'redis-13818.c8.us-east-1-2.ec2.cloud.redislabs.com',
