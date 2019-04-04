@@ -33,6 +33,9 @@ npm install webster
 ## Documentation
 You can see more details from [here](http://webster.zhuyingda.com/).
 
+## Support for 996icu project
+[![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
+
 ## License
 
 [GPL-V3](http://www.gnu.org/licenses/)
