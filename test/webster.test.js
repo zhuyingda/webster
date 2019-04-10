@@ -43,9 +43,9 @@ describe('webster unit test', function() {
                 channel: 'test',
                 dbConf: {
                     redis: {
-                        host: 'redis-13818.c8.us-east-1-2.ec2.cloud.redislabs.com',
-                        port: 13818,
-                        password: 'n0JZ9pBM0oLHLITjyyHRiRAPAm2k4ftN'
+                        host: 'redis-15455.c80.us-east-1-2.ec2.cloud.redislabs.com',
+                        port: 15455,
+                        password: 'L7hfNRGniDYdSZxJpCmdDtafqEsDxpaN'
                     }
                 }
             });
@@ -83,13 +83,13 @@ describe('webster unit test', function() {
                 deviceType: 'pc',
                 userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36',
                 customHeaders: {
-                    'Referer': 'http://cp01-zhuyingda.epc.baidu.com'
+                    'Referer': 'https://www.zhuyingda.com/'
                 },
                 dbConf: {
                     redis: {
-                        host: 'redis-13818.c8.us-east-1-2.ec2.cloud.redislabs.com',
-                        port: 13818,
-                        password: 'n0JZ9pBM0oLHLITjyyHRiRAPAm2k4ftN'
+                        host: 'redis-15455.c80.us-east-1-2.ec2.cloud.redislabs.com',
+                        port: 15455,
+                        password: 'L7hfNRGniDYdSZxJpCmdDtafqEsDxpaN'
                     }
                 }
             });

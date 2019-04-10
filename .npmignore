@@ -40,3 +40,7 @@ test
 
 # benchmark
 benchmark
+
+# Docker config files
+Dockerfile
+Dockerfile.demo
