@@ -10,6 +10,21 @@ let task = new Task({
             selector: '.result.c-container h3',
             type: 'text',
             field: 'title'
+        },
+        {
+            selector: '.c-span4.opr-recommends-merge-item .c-gap-top-small',
+            type: 'text',
+            field: 'recom'
+        }
+    ],
+    actions: [
+        {
+            type: "waitAfterPageLoading",
+            value: 2000
+        },
+        {
+            type: 'clickSelectorElement',
+            selector: '.cr-title-sub'
         }
     ]
 });
