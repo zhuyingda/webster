@@ -139,7 +139,6 @@ describe('webster unit test', function() {
                     super(option);
                 }
                 afterCrawlRequest(result) {
-                    console.log(222);
                     done();
                 }
             }
