@@ -35,9 +35,9 @@ describe('webster unit test', function() {
         });
     });
 
-    describe('task module consumer & producer', function() {
+    describe('consumer & producer module test in browser mode', function() {
         this.timeout(55000);
-        it('test producer', function (done) {
+        it('test browser mode producer', function (done) {
             const Producer = require('../lib/producer');
             let myProducer = new Producer({
                 channel: 'test',
@@ -63,7 +63,68 @@ describe('webster unit test', function() {
                 actions: [
                     {
                         type: "waitAfterPageLoading",
-                        value: 2000
+                        value: 500
+                    }
+                ]
+            })
+            myProducer.generateTask(task).then(() => {
+                done();
+            });
+        });
+
+        it('test consumer for browser crawling', function (done) {
+            const Consumer = require('../lib/consumer');
+            class TestConsumer extends Consumer {
+                constructor(option) {
+                    super(option);
+                }
+                afterCrawlRequest(result) {
+                    done();
+                }
+            }
+            let myConsumer = new TestConsumer({
+                channel: 'test',
+                sleepTime: 5000,
+                deviceType: 'pc',
+                userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36',
+                customHeaders: {
+                    'Referer': 'https://www.zhuyingda.com/'
+                },
+                dbConf: {
+                    redis: {
+                        host: 'redis-15455.c80.us-east-1-2.ec2.cloud.redislabs.com',
+                        port: 15455,
+                        password: 'L7hfNRGniDYdSZxJpCmdDtafqEsDxpaN'
+                    }
+                }
+            });
+            myConsumer.startConsume();
+        });
+    });
+    
+    describe('consumer & producer module test in plain mode', function() {
+        this.timeout(20000);
+        it('test plain mode producer', function (done) {
+            const Producer = require('../lib/producer');
+            let myProducer = new Producer({
+                channel: 'test2',
+                dbConf: {
+                    redis: {
+                        host: 'redis-15455.c80.us-east-1-2.ec2.cloud.redislabs.com',
+                        port: 15455,
+                        password: 'L7hfNRGniDYdSZxJpCmdDtafqEsDxpaN'
+                    }
+                }
+            });
+            const Task = require('../lib/task');
+            let task = new Task({
+                spiderType: 'plain',
+                url: 'https://www.zhuyingda.com/blog.html',
+                targets: [
+                    {
+                        selector: '.blog-item a',
+                        type: 'text',
+                        field: 'title'
                     }
                 ]
             })
@@ -73,18 +134,17 @@ describe('webster unit test', function() {
         });
         it('test consumer for plain crawling', function (done) {
             const Consumer = require('../lib/consumer');
-            class TestConsumer extends Consumer {
+            class TestConsumer2 extends Consumer {
                 constructor(option) {
                     super(option);
                 }
                 afterCrawlRequest(result) {
-                    console.log(result);
+                    console.log(222);
                     done();
-                    process.exit();
                 }
             }
-            let myConsumer = new TestConsumer({
-                channel: 'test',
+            let myConsumer = new TestConsumer2({
+                channel: 'test2',
                 sleepTime: 5000,
                 deviceType: 'pc',
                 userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36',
