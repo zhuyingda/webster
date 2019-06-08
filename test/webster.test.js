@@ -1,4 +1,13 @@
 const assert = require('assert');
+let doneTest = 0;
+
+function ifExit() {
+    doneTest++;
+    if (doneTest === 4) {
+        console.log('webster: all test case has finished.')
+        process.exit();
+    }
+}
 
 describe('webster unit test', function() {
     describe('task module test', function() {
@@ -69,6 +78,7 @@ describe('webster unit test', function() {
             })
             myProducer.generateTask(task).then(() => {
                 done();
+                ifExit();
             });
         });
 
@@ -80,6 +90,7 @@ describe('webster unit test', function() {
                 }
                 afterCrawlRequest(result) {
                     done();
+                    ifExit();
                 }
             }
             let myConsumer = new TestConsumer({
@@ -130,6 +141,7 @@ describe('webster unit test', function() {
             })
             myProducer.generateTask(task).then(() => {
                 done();
+                ifExit();
             });
         });
         it('test consumer for plain crawling', function (done) {
@@ -140,6 +152,7 @@ describe('webster unit test', function() {
                 }
                 afterCrawlRequest(result) {
                     done();
+                    ifExit();
                 }
             }
             let myConsumer = new TestConsumer2({
