@@ -45,7 +45,7 @@ describe('webster unit test', function() {
     });
 
     describe('consumer & producer module test in browser mode', function() {
-        this.timeout(55000);
+        this.timeout(100000);
         it('test browser mode producer', function (done) {
             const Producer = require('../lib/producer');
             let myProducer = new Producer({
@@ -112,7 +112,7 @@ describe('webster unit test', function() {
             myConsumer.startConsume();
         });
     });
-    
+
     describe('consumer & producer module test in plain mode', function() {
         this.timeout(20000);
         it('test plain mode producer', function (done) {
