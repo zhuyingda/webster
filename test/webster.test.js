@@ -171,7 +171,14 @@ describe('webster unit test', function() {
                     }
                 }
             });
-            myConsumer.startConsume();
+            try {
+                myConsumer.startConsume();
+            }
+            catch (err) {
+                console.log('browser consumer executing got error');
+                done();
+                ifExit();
+            }
         });
     });
 });
