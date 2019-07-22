@@ -1,4 +1,5 @@
 const assert = require('assert');
+const mockServer = require('./mock/server');
 let doneTest = 0;
 
 function ifExit() {
@@ -10,6 +11,12 @@ function ifExit() {
 }
 
 describe('webster unit test', function() {
+    before(function () {
+        mockServer.listen(8081);
+    });
+    after(function () {
+        mockServer.close(8081);
+    });
     describe('task module test', function() {
         const Task = require('../lib/task');
         let task1 = new Task({
@@ -45,7 +52,8 @@ describe('webster unit test', function() {
     });
 
     describe('consumer & producer module test in browser mode', function() {
-        this.timeout(100000);
+        this.timeout(60000);
+        const setSelector = '.container ul li';
         it('test browser mode producer', function (done) {
             const Producer = require('../lib/producer');
             let myProducer = new Producer({
@@ -61,12 +69,12 @@ describe('webster unit test', function() {
             const Task = require('../lib/task');
             let task = new Task({
                 spiderType: 'browser',
-                url: 'https://www.zhuyingda.com/blog.html',
+                url: 'http://127.0.0.1:8081/?num=1',
                 targets: [
                     {
-                        selector: '.blog-item a',
+                        selector: setSelector,
                         type: 'text',
-                        field: 'title'
+                        field: 'name'
                     }
                 ],
                 actions: [
@@ -89,7 +97,26 @@ describe('webster unit test', function() {
                     super(option);
                 }
                 afterCrawlRequest(result) {
-                    done();
+                    if (result && result.name) {
+                        assert.equal(17, result.name.length);
+
+                        assert.equal(setSelector, result.name[0].selector);
+                        assert.equal('Kodiak', result.name[0].text);
+                        assert.equal(0, result.name[0].index);
+
+                        assert.equal(setSelector, result.name[1].selector);
+                        assert.equal('Cheetah', result.name[1].text);
+                        assert.equal(1, result.name[1].index);
+
+                        assert.equal(setSelector, result.name[2].selector);
+                        assert.equal('Puma', result.name[2].text);
+                        assert.equal(2, result.name[2].index);
+                        done();
+                    }
+                    else {
+                        console.error('test consumer for browser crawling unit error');
+                        done(new Error());
+                    }
                     ifExit();
                 }
             }
@@ -109,12 +136,20 @@ describe('webster unit test', function() {
                     }
                 }
             });
-            myConsumer.startConsume();
+            try {
+                myConsumer.startConsume();
+            }
+            catch (err) {
+                console.log('browser mode consumer executing got error');
+                done();
+                ifExit();
+            }
         });
     });
 
     describe('consumer & producer module test in plain mode', function() {
         this.timeout(20000);
+        const setSelector = '.container ul li';
         it('test plain mode producer', function (done) {
             const Producer = require('../lib/producer');
             let myProducer = new Producer({
@@ -130,12 +165,12 @@ describe('webster unit test', function() {
             const Task = require('../lib/task');
             let task = new Task({
                 spiderType: 'plain',
-                url: 'https://www.zhuyingda.com/blog.html',
+                url: 'http://127.0.0.1/?num=1',
                 targets: [
                     {
-                        selector: '.blog-item a',
+                        selector: setSelector,
                         type: 'text',
-                        field: 'title'
+                        field: 'name'
                     }
                 ]
             })
@@ -175,7 +210,7 @@ describe('webster unit test', function() {
                 myConsumer.startConsume();
             }
             catch (err) {
-                console.log('browser consumer executing got error');
+                console.log('plain mode consumer executing got error');
                 done();
                 ifExit();
             }
