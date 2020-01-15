@@ -1,5 +1,10 @@
 const assert = require('assert');
 const mockServer = require('./mock/server');
+const REDIS_CONF = {
+    host: 'redis-13437.c10.us-east-1-2.ec2.cloud.redislabs.com',
+    port: 13437,
+    password: '0pFnuxvbjHurcR1WBFzsL4YI39s925f2'
+};
 let doneTest = 0;
 
 function ifExit() {
@@ -59,11 +64,7 @@ describe('webster unit test', function() {
             let myProducer = new Producer({
                 channel: 'test',
                 dbConf: {
-                    redis: {
-                        host: 'redis-15455.c80.us-east-1-2.ec2.cloud.redislabs.com',
-                        port: 15455,
-                        password: 'L7hfNRGniDYdSZxJpCmdDtafqEsDxpaN'
-                    }
+                    redis: REDIS_CONF
                 }
             });
             const Task = require('../lib/task');
@@ -129,11 +130,7 @@ describe('webster unit test', function() {
                     'Referer': 'https://www.zhuyingda.com/'
                 },
                 dbConf: {
-                    redis: {
-                        host: 'redis-15455.c80.us-east-1-2.ec2.cloud.redislabs.com',
-                        port: 15455,
-                        password: 'L7hfNRGniDYdSZxJpCmdDtafqEsDxpaN'
-                    }
+                    redis: REDIS_CONF
                 }
             });
             try {
@@ -155,11 +152,7 @@ describe('webster unit test', function() {
             let myProducer = new Producer({
                 channel: 'test2',
                 dbConf: {
-                    redis: {
-                        host: 'redis-15455.c80.us-east-1-2.ec2.cloud.redislabs.com',
-                        port: 15455,
-                        password: 'L7hfNRGniDYdSZxJpCmdDtafqEsDxpaN'
-                    }
+                    redis: REDIS_CONF
                 }
             });
             const Task = require('../lib/task');
@@ -199,11 +192,7 @@ describe('webster unit test', function() {
                     'Referer': 'https://www.zhuyingda.com/'
                 },
                 dbConf: {
-                    redis: {
-                        host: 'redis-15455.c80.us-east-1-2.ec2.cloud.redislabs.com',
-                        port: 15455,
-                        password: 'L7hfNRGniDYdSZxJpCmdDtafqEsDxpaN'
-                    }
+                    redis: REDIS_CONF
                 }
             });
             try {
