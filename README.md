@@ -29,6 +29,10 @@ Or you can deploy on [Docker](https://hub.docker.com/r/zhuyingda/webster-runtime
 npm install webster
 ```
 
+## Architecture overview
+
+![](https://cdn.jsdelivr.net/gh/prometheus/prometheus@c34257d069c630685da35bcef084632ffd5d6209/documentation/images/architecture.svg)
+
 ## Documentation
 You can see more details from [here](http://webster.zhuyingda.com/).
 
