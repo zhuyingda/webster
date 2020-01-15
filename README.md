@@ -7,6 +7,7 @@
 Webster is a reliable web crawling and scraping framework written with Node.js, used to crawl websites and extract structured data from their pages. Which is different from other crawling framework is that Webster can scrape the content which rendered by browser client side javascript and ajax request.
 
 ## Docker quick start
+
 pull the example docker image:
 ```bash
 docker pull zhuyingda/webster-demo
@@ -31,7 +32,7 @@ npm install webster
 
 ## Architecture overview
 
-![](https://cdn.jsdelivr.net/gh/prometheus/prometheus@c34257d069c630685da35bcef084632ffd5d6209/documentation/images/architecture.svg)
+![](https://www.zhuyingda.com/static/img/webster-workflow.svg)
 
 ## Documentation
 You can see more details from [here](http://webster.zhuyingda.com/).
