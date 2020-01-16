@@ -5,6 +5,7 @@ const REDIS_CONF = {
     port: 13437,
     password: '0pFnuxvbjHurcR1WBFzsL4YI39s925f2'
 };
+const MOCK_SERVER_PORT = 8081;
 let doneTest = 0;
 
 function ifExit() {
@@ -17,10 +18,10 @@ function ifExit() {
 
 describe('webster unit test', function() {
     before(function () {
-        mockServer.listen(8081);
+        mockServer.listen(MOCK_SERVER_PORT);
     });
     after(function () {
-        mockServer.close(8081);
+        mockServer.close(MOCK_SERVER_PORT);
     });
     describe('task module test', function() {
         const Task = require('../lib/task');
@@ -70,7 +71,7 @@ describe('webster unit test', function() {
             const Task = require('../lib/task');
             let task = new Task({
                 spiderType: 'browser',
-                url: 'http://127.0.0.1:8081/?num=1',
+                url: `http://127.0.0.1:${MOCK_SERVER_PORT}/?num=1`,
                 targets: [
                     {
                         selector: setSelector,
@@ -158,7 +159,7 @@ describe('webster unit test', function() {
             const Task = require('../lib/task');
             let task = new Task({
                 spiderType: 'plain',
-                url: 'http://127.0.0.1/?num=1',
+                url: `http://127.0.0.1:${MOCK_SERVER_PORT}/?num=1`,
                 targets: [
                     {
                         selector: setSelector,
