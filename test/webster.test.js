@@ -6,13 +6,17 @@ const REDIS_CONF = {
     password: '0pFnuxvbjHurcR1WBFzsL4YI39s925f2'
 };
 const MOCK_SERVER_PORT = 8081;
+const TEST_CHANNEL_1 = '_tc1_' + (Math.random() * 1000000).toFixed();
+const TEST_CHANNEL_2 = '_tc2_' + (Math.random() * 1000000).toFixed();
 let doneTest = 0;
 
 function ifExit() {
     doneTest++;
     if (doneTest === 4) {
         console.log('webster: all test case has finished.')
-        process.exit();
+        setTimeout(() => {
+            process.exit(0);
+        }, 500);
     }
 }
 
@@ -62,8 +66,9 @@ describe('webster unit test', function() {
         const setSelector = '.container ul li';
         it('test browser mode producer', function (done) {
             const Producer = require('../lib/producer');
+            console.info(`test channel: ${TEST_CHANNEL_1}`);
             let myProducer = new Producer({
-                channel: 'test',
+                channel: TEST_CHANNEL_1,
                 dbConf: {
                     redis: REDIS_CONF
                 }
@@ -123,7 +128,7 @@ describe('webster unit test', function() {
                 }
             }
             let myConsumer = new TestConsumer({
-                channel: 'test',
+                channel: TEST_CHANNEL_1,
                 sleepTime: 5000,
                 deviceType: 'pc',
                 userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36',
@@ -149,9 +154,10 @@ describe('webster unit test', function() {
         this.timeout(20000);
         const setSelector = '.container ul li';
         it('test plain mode producer', function (done) {
+            console.info(`test channel: ${TEST_CHANNEL_2}`);
             const Producer = require('../lib/producer');
             let myProducer = new Producer({
-                channel: 'test2',
+                channel: TEST_CHANNEL_2,
                 dbConf: {
                     redis: REDIS_CONF
                 }
@@ -185,7 +191,7 @@ describe('webster unit test', function() {
                 }
             }
             let myConsumer = new TestConsumer2({
-                channel: 'test2',
+                channel: TEST_CHANNEL_2,
                 sleepTime: 5000,
                 deviceType: 'pc',
                 userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36',
