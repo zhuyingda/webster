@@ -1,9 +1,9 @@
 const assert = require('assert');
 const mockServer = require('./mock/server');
 const REDIS_CONF = {
-    host: 'redis-13437.c10.us-east-1-2.ec2.cloud.redislabs.com',
-    port: 13437,
-    password: '0pFnuxvbjHurcR1WBFzsL4YI39s925f2'
+    host: 'redis-12419.c44.us-east-1-2.ec2.cloud.redislabs.com',
+    port: 12419,
+    password: 'X2AcjziaOOYPppWFOPiP4rmzZ9RFLViv'
 };
 const MOCK_SERVER_PORT = 8081;
 const TEST_CHANNEL_1 = '_tc1_' + (Math.random() * 1000000).toFixed();

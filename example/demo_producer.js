@@ -12,30 +12,40 @@ let task = new Task({
             field: 'title'
         },
         {
-            selector: '.c-span4.opr-recommends-merge-item .c-gap-top-small',
-            type: 'text',
-            field: 'recom'
+            selector: '.result.c-container h3 a',
+            type: 'attr',
+            attrName: 'href',
+            field: 'link'
+        },
+        {
+            selector: '.result.c-container .c-abstract',
+            type: 'html',
+            field: 'htmlfrag'
         }
     ],
     actions: [
         {
-            type: "waitAfterPageLoading",
-            value: 2000
+            type: 'waitAfterPageLoading',
+            value: 3000
         },
         {
             type: 'clickSelectorElement',
             selector: '.cr-title-sub'
         }
-    ]
+    ],
+    referInfo: {
+        para1: 'para1',
+        para2: 'para2'
+    }
 });
 
 let myProducer = new Producer({
     channel: 'baidu',
     dbConf: {
         redis: {
-            host: 'redis-15455.c80.us-east-1-2.ec2.cloud.redislabs.com',
-            port: 15455,
-            password: 'L7hfNRGniDYdSZxJpCmdDtafqEsDxpaN'
+            host: 'redis-12419.c44.us-east-1-2.ec2.cloud.redislabs.com',
+            port: 12419,
+            password: 'X2AcjziaOOYPppWFOPiP4rmzZ9RFLViv'
         }
     }
 });

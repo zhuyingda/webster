@@ -16,9 +16,9 @@ let myConsumer = new MyConsumer({
     deviceType: 'pc',
     dbConf: {
         redis: {
-            host: 'redis-15455.c80.us-east-1-2.ec2.cloud.redislabs.com',
-            port: 15455,
-            password: 'L7hfNRGniDYdSZxJpCmdDtafqEsDxpaN'
+            host: 'redis-12419.c44.us-east-1-2.ec2.cloud.redislabs.com',
+            port: 12419,
+            password: 'X2AcjziaOOYPppWFOPiP4rmzZ9RFLViv'
         }
     }
 });

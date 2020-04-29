@@ -10,13 +10,13 @@ RUN yum install ipa-gothic-fonts xorg-x11-fonts-100dpi \
 RUN yum install wget -y
 RUN rm -rf /var/cache/yum
 RUN adduser work
-RUN wget https://nodejs.org/dist/v8.10.0/node-v8.10.0-linux-x64.tar.xz \
-    -O /home/work/node-v8.10.0-linux-x64.tar.xz
-RUN xz -d /home/work/node-v8.10.0-linux-x64.tar.xz
-RUN tar -xvf /home/work/node-v8.10.0-linux-x64.tar -C /home/work/
-RUN ln -s /home/work/node-v8.10.0-linux-x64/bin/node /usr/local/bin/node
-RUN ln -s /home/work/node-v8.10.0-linux-x64/bin/npm /usr/local/bin/npm
-RUN rm /home/work/node-v8.10.0-linux-x64.tar
+RUN wget https://nodejs.org/dist/v12.16.3/node-v12.16.3-linux-x64.tar.xz \
+    -O /home/work/node-v12.16.3-linux-x64.tar.xz
+RUN xz -d /home/work/node-v12.16.3-linux-x64.tar.xz
+RUN tar -xvf /home/work/node-v12.16.3-linux-x64.tar -C /home/work/
+RUN ln -s /home/work/node-v12.16.3-linux-x64/bin/node /usr/local/bin/node
+RUN ln -s /home/work/node-v12.16.3-linux-x64/bin/npm /usr/local/bin/npm
+RUN rm /home/work/node-v12.16.3-linux-x64.tar
 USER work
 RUN mkdir /home/work/webster_runtime
 WORKDIR /home/work/webster_runtime
