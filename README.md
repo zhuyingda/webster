@@ -1,4 +1,4 @@
-# Webster
+its an amazing project# Webster
 [![Financial Contributors on Open Collective](https://opencollective.com/webster/all/badge.svg?label=financial+contributors)](https://opencollective.com/webster) [![npm version](https://badge.fury.io/js/webster.svg)](https://www.npmjs.com/package/webster)
 [![Build Status](https://travis-ci.org/zhuyingda/webster.svg?branch=master)](https://travis-ci.org/zhuyingda/webster)
 [![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
