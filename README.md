@@ -32,7 +32,7 @@ npm install webster
 
 ## Architecture overview
 
-![](https://www.zhuyingda.com/static/img/webster-workflow.svg)
+![](https://raw.githubusercontent.com/zhuyingda/webster/master/doc/webster-workflow.svg)
 
 ## Documentation
 You can see more details from [here](http://webster.zhuyingda.com/).
