@@ -1,7 +1,6 @@
 # Webster
 [![Financial Contributors on Open Collective](https://opencollective.com/webster/all/badge.svg?label=financial+contributors)](https://opencollective.com/webster) [![npm version](https://badge.fury.io/js/webster.svg)](https://www.npmjs.com/package/webster)
 [![Build Status](https://travis-ci.org/zhuyingda/webster.svg?branch=master)](https://travis-ci.org/zhuyingda/webster)
-[![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
 
 ## Overview
 Webster is a reliable web crawling and scraping framework written with Node.js, used to crawl websites and extract structured data from their pages. Which is different from other crawling framework is that Webster can scrape the content which rendered by browser client side javascript and ajax request.
