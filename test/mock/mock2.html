@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style>
+            #container {
+                display: none;
+            }
+            #trigger_btn {
+                width: 100px;
+                height: 20px;
+                background: #ccc;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <p id="w"></p>
+            <p id="h"></p>
+            <p id="n">{{ ua }}</p>
+        </div>
+        <div id="trigger_btn"></div>
+        <script>
+            document.getElementById('trigger_btn').addEventListener('click', function () {
+                document.getElementById('w').innerText = document.documentElement.clientWidth;
+                document.getElementById('h').innerText = document.documentElement.clientHeight;
+                document.getElementById('container').style.display = 'block';
+            }, false);
+        </script>
+    </body>
+</html>

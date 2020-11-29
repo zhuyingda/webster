@@ -4,7 +4,7 @@
   "description": "a reliable web crawling & scraping framework for Node.js.",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha test/webster.test.js",
+    "test": "./node_modules/mocha/bin/mocha test/test.js",
     "postinstall": "opencollective-postinstall || true"
   },
   "repository": {
@@ -30,7 +30,8 @@
     "jsdom": "^11.3.0",
     "log4js": "^2.3.11",
     "opencollective-postinstall": "^2.0.2",
-    "puppeteer": "^1.18.1",
+    "playwright": "^1.6.2",
+    "puppeteer": "^5.5.0",
     "redis": "^2.8.0",
     "request": "^2.88.0",
     "uuid": "^3.1.0"
