@@ -4,6 +4,8 @@ const puppeteer = require('../../lib/browser/puppeteer');
 const MOCK_SERVER_PORT = 8081;
 
 describe('puppeteer usage', function () {
+    this.timeout(60000);
+
     before(function () {
         mockServer.listen(MOCK_SERVER_PORT);
     });
@@ -58,7 +60,6 @@ describe('puppeteer usage', function () {
             assert.strictEqual(Number(output.result.height[0].text), setH);
             assert.strictEqual(output.result.ua[0].text, setUA);
             done();
-            process.exit(0);
         });
     });
 

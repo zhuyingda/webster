@@ -4,6 +4,8 @@ const puppeteer = require('../../lib/browser/puppeteer');
 const MOCK_SERVER_PORT = 8081;
 
 describe('puppeteer usage', function () {
+    this.timeout(60000);
+
     before(function () {
         mockServer.listen(MOCK_SERVER_PORT);
     });
