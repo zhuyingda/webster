@@ -1,6 +1,6 @@
 {
   "name": "webster",
-  "version": "1.6.6",
+  "version": "1.7.0",
   "description": "a reliable web crawling & scraping framework for Node.js.",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,7 @@
     "url": "https://github.com/zhuyingda/webster/issues"
   },
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=10.0.0"
   },
   "homepage": "https://github.com/zhuyingda/webster#readme",
   "dependencies": {

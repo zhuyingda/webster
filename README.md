@@ -19,7 +19,7 @@ node demo_producer.js && node demo_consumer.js
 ```
 
 ## Requirements
-- Node.js 8.x+, redis
+- Node.js 10.x+, redis
 - Works on Linux, Mac OSX
 
 Or you can deploy on [Docker](https://hub.docker.com/r/zhuyingda/webster-runtime/).
