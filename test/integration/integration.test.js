@@ -25,9 +25,9 @@ describe('webster unit test', function() {
         this.timeout(20000);
         const setSelector = '.container ul li';
         it('test plain mode producer', function (done) {
-            console.info(`test channel: ${TEST_CHANNEL_2}`);
+            console.info(`test channel: ${TEST_CHANNEL_1}`);
             let myProducer = new Producer({
-                channel: TEST_CHANNEL_2,
+                channel: TEST_CHANNEL_1,
                 dbConf: {
                     redis: REDIS_CONF
                 }
@@ -57,7 +57,7 @@ describe('webster unit test', function() {
                 }
             }
             let myConsumer = new TestConsumer2({
-                channel: TEST_CHANNEL_2,
+                channel: TEST_CHANNEL_1,
                 sleepTime: 5000,
                 deviceType: 'pc',
                 userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36',
@@ -82,9 +82,9 @@ describe('webster unit test', function() {
         this.timeout(60000);
         const setSelector = '.container ul li';
         it('test browser(puppeteer) mode producer', function (done) {
-            console.info(`test channel: ${TEST_CHANNEL_1}`);
+            console.info(`test channel: ${TEST_CHANNEL_2}`);
             let myProducer = new Producer({
-                channel: TEST_CHANNEL_1,
+                channel: TEST_CHANNEL_2,
                 dbConf: {
                     redis: REDIS_CONF
                 }
@@ -142,7 +142,7 @@ describe('webster unit test', function() {
                 }
             }
             let myConsumer = new TestConsumer({
-                channel: TEST_CHANNEL_1,
+                channel: TEST_CHANNEL_2,
                 sleepTime: 5000,
                 deviceType: 'pc',
                 userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36',
