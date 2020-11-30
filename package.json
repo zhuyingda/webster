@@ -27,8 +27,8 @@
   },
   "homepage": "https://github.com/zhuyingda/webster#readme",
   "dependencies": {
-    "jsdom": "^11.3.0",
-    "log4js": "^2.3.11",
+    "jsdom": "^16.4.0",
+    "log4js": "^6.3.0",
     "opencollective-postinstall": "^2.0.2",
     "playwright": "^1.6.2",
     "puppeteer": "^5.5.0",
@@ -37,7 +37,7 @@
     "uuid": "^3.1.0"
   },
   "devDependencies": {
-    "eslint": "^5.16.0",
+    "eslint": "^7.14.0",
     "mocha": "^4.0.1"
   },
   "collective": {

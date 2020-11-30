@@ -3,7 +3,7 @@ const mockServer = require('../mock/server');
 const puppeteer = require('../../lib/browser/puppeteer');
 const MOCK_SERVER_PORT = 8081;
 
-describe('puppeteer usage test', function () {
+describe('puppeteer usage', function () {
     before(function () {
         mockServer.listen(MOCK_SERVER_PORT);
     });
