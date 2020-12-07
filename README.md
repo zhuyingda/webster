@@ -3,7 +3,10 @@
 [![Build Status](https://travis-ci.org/zhuyingda/webster.svg?branch=master)](https://travis-ci.org/zhuyingda/webster)
 
 ## Overview
-Webster is a reliable web crawling and scraping framework written with Node.js, used to crawl websites and extract structured data from their pages. Which is different from other crawling framework is that Webster can scrape the content which rendered by browser client side javascript and ajax request.
+
+Webster is A Powerful and Extensible and Web Crawling Framework for Node.js application. You can use Webster to crawl websites and extract structured data from their pages.
+
+Which is different from other crawling framework is that Webster can scrape the content which rendered by browser client side javascript and ajax request.
 
 ## Docker quick start
 
