@@ -1,6 +1,6 @@
 FROM centos:7.4.1708
 LABEL maintainer="Sugar yingdazhu@icloud.com"
-ARG nodever="14.15.1"
+ARG nodever="10.23.0"
 RUN yum install pango.x86_64 libXcomposite.x86_64 libXcursor.x86_64 \
     libXdamage.x86_64 libXext.x86_64 libXi.x86_64 libXtst.x86_64 \
     cups-libs.x86_64 libXScrnSaver.x86_64 libXrandr.x86_64 GConf2.x86_64 \
@@ -18,11 +18,11 @@ RUN tar -xvf /home/work/node-v${nodever}-linux-x64.tar -C /home/work/
 RUN ln -s /home/work/node-v${nodever}-linux-x64/bin/node /usr/local/bin/node
 RUN ln -s /home/work/node-v${nodever}-linux-x64/bin/npm /usr/local/bin/npm
 RUN rm /home/work/node-v${nodever}-linux-x64.tar
+RUN yum install git -y
 USER work
-RUN mkdir /home/work/webster_startup
-WORKDIR /home/work/webster_startup
-RUN npm init -y
-RUN npm i --save webster@latest
-COPY example/demo_consumer.js /home/work/webster_startup/
-COPY example/demo_producer.js /home/work/webster_startup/
-# CMD /home/work/node-v14.15.1-linux-x64/bin/node /home/work/webster_startup/demo_consumer.js
+RUN mkdir /home/work/test_env
+WORKDIR /home/work/test_env
+RUN git clone https://github.com/zhuyingda/webster.git
+WORKDIR /home/work/test_env/webster
+RUN npm install
+RUN npm run test
