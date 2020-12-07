@@ -1,6 +1,8 @@
 language: node_js
 node_js:
   - '10'
+before_install:
+  - "npm install && npm install playwright"
 sudo: false
 script:
     - "npm run test"
