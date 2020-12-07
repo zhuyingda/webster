@@ -11,7 +11,7 @@ class MyConsumer extends Consumer {
 }
 
 let myConsumer = new MyConsumer({
-    channel: 'baidu',
+    channel: 'demo_channel1',
     sleepTime: 5000,
     deviceType: 'pc',
     dbConf: {

@@ -15,7 +15,8 @@ docker run -it zhuyingda/webster-demo
 
 here is a simple demo for crawler about Baidu search result web page:
 ```bash
-node demo_producer.js && node demo_consumer.js
+node demo_producer.js
+env MOD=debug node demo_consumer.js
 ```
 
 ## Requirements
