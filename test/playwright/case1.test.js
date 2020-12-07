@@ -1,7 +1,7 @@
 const assert = require('assert');
 const mockServer = require('../mock/server');
 const playwright = require('../../lib/browser/playwright');
-const MOCK_SERVER_PORT = 8081;
+const MOCK_SERVER_PORT = 8181;
 
 describe('playwright usage', function () {
     this.timeout(60000);

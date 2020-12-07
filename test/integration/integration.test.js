@@ -8,12 +8,12 @@ const REDIS_CONF = {
     port: 12419,
     password: 'X2AcjziaOOYPppWFOPiP4rmzZ9RFLViv'
 };
-const MOCK_SERVER_PORT = 8081;
+const MOCK_SERVER_PORT = 8181;
 const TEST_CHANNEL_1 = '_tc1_' + (Math.random() * 1000000).toFixed();
 const TEST_CHANNEL_2 = '_tc2_' + (Math.random() * 1000000).toFixed();
 const TEST_CHANNEL_3 = '_tc3_' + (Math.random() * 1000000).toFixed();
 
-describe('webster unit test', function() {
+describe('integration test', function() {
     before(function () {
         mockServer.listen(MOCK_SERVER_PORT);
     });
