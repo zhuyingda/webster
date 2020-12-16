@@ -16,7 +16,7 @@ docker pull zhuyingda/webster-demo
 docker run -it zhuyingda/webster-demo
 ```
 
-here is a simple demo for crawler about Baidu search result web page:
+here is a simple demo for crawling [this sample site](http://quotes.toscrape.com/tag/humor/), (which was a demo used by [Scrapy framework](https://scrapy.org/)):
 ```bash
 node demo_producer.js
 env MOD=debug node demo_consumer.js
