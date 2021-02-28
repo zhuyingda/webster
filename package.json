@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "eslint": "^7.14.0",
-    "mocha": "^4.0.1"
+    "mocha": "^8.3.0"
   },
   "collective": {
     "type": "opencollective",
