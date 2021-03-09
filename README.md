@@ -36,7 +36,7 @@ npm install webster
 ## Usage on Raspbian Platform
 ```bash
 sudo apt install chromium-browser chromium-codecs-ffmpeg
-env MOD=debug EXE_PATH=EXE_PATH=/usr/bin/chromium-browser node demo_consumer.js
+env MOD=debug EXE_PATH=/usr/bin/chromium-browser node demo_consumer.js
 ```
 
 ## Architecture overview
