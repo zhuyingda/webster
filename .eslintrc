@@ -1,15 +1,11 @@
 {
-    # "parser": "babel-eslint",
     "parserOptions": {
         "sourceType": "module",
         "ecmaFeatures": {
             "jsx": true
         }
     },
-    # "plugins": [
-    #     "babel",
-    #     "react"
-    # ],
+    "ecmaVersion": 2019,
     "env": {
         "browser": true,
         "node": true
@@ -220,7 +216,7 @@
         "operator-linebreak": ["error", "before"],
         "padded-blocks": "off",
         "padding-line-between-statements": "off",
-        # "prefer-arrow-callback": "warn",
+        "prefer-arrow-callback": "warn",
         "prefer-const": "off",
         "prefer-destructuring": "off",
         "prefer-numeric-literals": "warn",
