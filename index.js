@@ -38,7 +38,7 @@ if (!!process.env.MOD) {
     }
 }
 else {
-    let curFile = process.mainModule.filename.split('/');
+    let curFile = require.main.filename.split('/');
     curFile = curFile[curFile.length - 1];
     if (/\.js$/.test(curFile)) {
         curFile = curFile.replace(/\.js$/, '')
