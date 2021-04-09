@@ -1,6 +1,6 @@
 {
   "name": "webster",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "description": "a reliable web crawling & scraping framework for Node.js.",
   "main": "index.js",
   "scripts": {
