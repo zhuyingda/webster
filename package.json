@@ -1,6 +1,6 @@
 {
   "name": "webster",
-  "version": "1.8.1-beta2",
+  "version": "1.8.1-beta3",
   "description": "a reliable web crawling & scraping framework for Node.js.",
   "main": "index.js",
   "scripts": {
@@ -32,7 +32,7 @@
     "opencollective-postinstall": "^2.0.2",
     "playwright": "^1.6.2",
     "puppeteer": "^5.5.0",
-    "redis": "^2.8.0",
+    "redis": "^3.1.2",
     "request": "^2.88.0",
     "uuid": "^3.1.0"
   },
