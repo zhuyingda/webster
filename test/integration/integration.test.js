@@ -1,7 +1,9 @@
 const assert = require('assert');
+const proxyquire = require('proxyquire');
+const redisStub = require('../redis_stub');
 const mockServer = require('../mock/server');
-const Consumer = require('../../lib/consumer');
-const Producer = require('../../lib/producer');
+const Consumer = proxyquire('../../lib/consumer', redisStub);
+const Producer = proxyquire('../../lib/producer', redisStub);
 const Task = require('../../lib/task');
 const REDIS_CONF = {
     host: 'redis-12419.c44.us-east-1-2.ec2.cloud.redislabs.com',
