@@ -4,26 +4,12 @@
 
 ## Overview
 
-Webster is A Powerful and Extensible Web Crawling Framework for Node.js application. You can use Webster to crawl websites and extract structured data from their pages.
+Webster is a reliable web crawling and scraping framework written with Node.js, used to crawl websites and extract structured data from their pages.
 
-Which is different from other crawling framework is that Webster can scrape the content which rendered by browser client side javascript and ajax request.
-
-## Docker quick start
-
-pull the example docker image:
-```bash
-docker pull zhuyingda/webster-demo
-docker run -it zhuyingda/webster-demo
-```
-
-here is a simple demo for crawling [this sample site](http://quotes.toscrape.com/tag/humor/), (which was a demo used by [Scrapy framework](https://scrapy.org/)):
-```bash
-node demo_producer.js
-env MOD=debug node demo_consumer.js
-```
+Which is different from other crawling framework is that Webster can scrape the content which rendered by browser client side javascript and ajax request
 
 ## Requirements
-- Node.js 10.x+, redis
+- Node.js 10.x+
 - Works on Linux, Mac OSX
 
 Or you can deploy on [Docker](https://hub.docker.com/r/zhuyingda/webster-runtime/).
@@ -33,20 +19,152 @@ Or you can deploy on [Docker](https://hub.docker.com/r/zhuyingda/webster-runtime
 npm install webster
 ```
 
+## Single spider example
+
+```javascript
+const { spider } = require('webster');
+
+class MySpider extends spider {
+    get defUserAgent() {
+        return 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36';
+    }
+    get defDeviceType() {
+        return 'pc';
+    }
+    async parseHtml(html) {
+        return true;
+    }
+}
+
+(async () => {
+    const spider = new MySpider({
+        actions: [
+            {
+                type: 'waitForSelector',
+                selector: 'div.js-details-container',
+            }
+        ],
+        targets: [
+            {
+                selector: 'div.Box-row[role=row]',
+                type: 'text',
+                field: 'sugs'
+            }
+        ],
+    });
+    const url = `https://github.com/zhuyingda/webster`;
+    let crawlResult = await spider.startRequest(url);
+    console.log(crawlResult);
+})();
+```
+
+## Docker cluster example
+
+Pull the example docker image:
+```bash
+docker pull zhuyingda/webster-demo
+docker run -it zhuyingda/webster-demo
+```
+
+In this docker image, there is a simple cluster-able example:
+
+```javascript
+// producer
+const Webster = require('webster');
+const Producer = Webster.producer;
+const Task = Webster.task;
+
+let task = new Task({
+    spiderType: 'browser',
+    engineType: 'playwright',
+    browserType: 'chromium',
+    url: 'http://quotes.toscrape.com/tag/humor/',
+    targets: [
+        {
+            selector: 'span.text',
+            type: 'text',
+            field: 'quote'
+        },
+        {
+            selector: 'li.next > a',
+            type: 'attr',
+            attrName: 'href',
+            field: 'link'
+        }
+    ],
+    actions: [
+        {
+            type: 'waitAfterPageLoading',
+            value: 500
+        }
+    ],
+    referInfo: {
+        para1: 'this is a refer field 1',
+        para2: 'this is a refer field 2'
+    }
+});
+
+let myProducer = new Producer({
+    channel: 'demo_channel1',
+    dbConf: {
+        redis: {
+            host: 'redis-12419.c44.us-east-1-2.ec2.cloud.redislabs.com',
+            port: 12419,
+            password: 'X2AcjziaOOYPppWFOPiP4rmzZ9RFLViv'
+        }
+    }
+});
+myProducer.generateTask(task).then(() => {
+    console.log('done');
+    process.exit();
+});
+```
+
+```javascript
+// consumer
+const Webster = require('webster');
+const Consumer = Webster.consumer;
+
+class MyConsumer extends Consumer {
+    constructor(option) {
+        super(option);
+    }
+    afterCrawlRequest(result) {
+        console.log('your scrape result:', result);
+    }
+}
+
+let myConsumer = new MyConsumer({
+    channel: 'demo_channel1',
+    sleepTime: 5000,
+    deviceType: 'pc',
+    dbConf: {
+        redis: {
+            host: 'redis-12419.c44.us-east-1-2.ec2.cloud.redislabs.com',
+            port: 12419,
+            password: 'X2AcjziaOOYPppWFOPiP4rmzZ9RFLViv'
+        }
+    }
+});
+myConsumer.startConsume();
+```
+
+```bash
+node demo_producer.js
+env MOD=debug node demo_consumer.js
+```
+
+You can organize your crawler cluster by Consumer and Producer like this:
+![](https://raw.githubusercontent.com/zhuyingda/webster/master/doc/webster-workflow.svg)
+
 ## Usage on Raspbian Platform
 ```bash
 sudo apt install chromium-browser chromium-codecs-ffmpeg
 env MOD=debug EXE_PATH=/usr/bin/chromium-browser node demo_consumer.js
 ```
 
-## Architecture overview
-
-![](https://raw.githubusercontent.com/zhuyingda/webster/master/doc/webster-workflow.svg)
-
 ## Documentation
 You can see more details from [here](http://webster.zhuyingda.com/).
-
-## Contributors
 
 ### Code Contributors
 
