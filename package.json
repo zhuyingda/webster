@@ -1,11 +1,11 @@
 {
   "name": "webster",
-  "version": "1.8.5",
+  "version": "1.9.0-beta",
   "description": "a reliable web crawling & scraping framework for Node.js.",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha test/test.js",
-    "postinstall": "opencollective-postinstall || true",
+    "postinstall": "npx playwright install && opencollective-postinstall || true",
     "lint": "./node_modules/.bin/eslint ./lib/"
   },
   "repository": {
@@ -24,15 +24,15 @@
     "url": "https://github.com/zhuyingda/webster/issues"
   },
   "engines": {
-    "node": ">=10.0.0"
+    "node": ">=16.0.0"
   },
   "homepage": "https://github.com/zhuyingda/webster#readme",
   "dependencies": {
     "jsdom": "^16.4.0",
     "log4js": "^6.3.0",
     "opencollective-postinstall": "^2.0.2",
-    "playwright": "^1.30.0",
-    "puppeteer": "^19.6.3",
+    "playwright": "^1.39.0",
+    "puppeteer": "^21.5.0",
     "redis": "^3.1.2",
     "request": "^2.88.0",
     "uuid": "^3.1.0"
