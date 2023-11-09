@@ -1,31 +1,48 @@
-FROM centos:7.9.2009
+FROM ubuntu:20.04
 LABEL maintainer="Sugar yingdazhu@icloud.com"
 ARG nodever="16.20.2"
-RUN yum install epel-release -y
-RUN yum clean all
-RUN yum makecache
-RUN yum install pango libXcomposite libXcursor \
-    libXdamage libXext libXi libXtst \
-    cups-libs libXScrnSaver libXrandr GConf2 \
-    alsa-lib atk gtk3 -y
-RUN yum install ipa-gothic-fonts xorg-x11-fonts-100dpi \
-    xorg-x11-fonts-75dpi xorg-x11-utils xorg-x11-fonts-cyrillic \
-    xorg-x11-fonts-Type1 xorg-x11-fonts-misc -y
-RUN yum install wget -y
-RUN rm -rf /var/cache/yum
+RUN apt-get update && apt-get install -y \
+    curl \
+    gpg \
+    wget \
+    ca-certificates \
+    libx11-xcb1 \
+    libxcb1 \
+    libxcb-dri3-0 \
+    libxcomposite1 \
+    libxdamage1 \
+    libxi6 \
+    libxtst6 \
+    libnss3 \
+    libcups2 \
+    libxss1 \
+    libxrandr2 \
+    libasound2 \
+    libatk1.0-0 \
+    libatk-bridge2.0-0 \
+    libpangocairo-1.0-0 \
+    libgtk-3-0 \
+    libgbm1 \
+    libxshmfence1 \
+    libgles2-mesa \
+    xvfb \
+    && rm -rf /var/lib/apt/lists/*
 RUN adduser work
 RUN wget https://nodejs.org/dist/v${nodever}/node-v${nodever}-linux-x64.tar.xz \
-    -O /home/work/node-v${nodever}-linux-x64.tar.xz
-RUN xz -d /home/work/node-v${nodever}-linux-x64.tar.xz
-RUN tar -xvf /home/work/node-v${nodever}-linux-x64.tar -C /home/work/
-RUN ln -s /home/work/node-v${nodever}-linux-x64/bin/node /usr/local/bin/node
-RUN ln -s /home/work/node-v${nodever}-linux-x64/bin/npm /usr/local/bin/npm
-RUN rm /home/work/node-v${nodever}-linux-x64.tar
+    -O /home/work/node-v${nodever}-linux-x64.tar.xz \
+    && xz -d /home/work/node-v${nodever}-linux-x64.tar.xz \
+    && tar -xvf /home/work/node-v${nodever}-linux-x64.tar -C /home/work/ \
+    && mv /home/work/node-v${nodever}-linux-x64 /home/work/nodejs \
+    && ln -s /home/work/nodejs/bin/node /usr/local/bin/node \
+    && ln -s /home/work/nodejs/bin/npm /usr/local/bin/npm \
+    && ln -s /home/work/nodejs/bin/npx /usr/local/bin/npx \
+    && rm /home/work/node-v${nodever}-linux-x64.tar
 USER work
-RUN mkdir /home/work/webster_runtime
-WORKDIR /home/work/webster_runtime
+RUN mkdir /home/work/webster_startup
+WORKDIR /home/work/webster_startup
 RUN npm init -y
 RUN npm i --save webster@latest
+RUN npx playwright install
 
 # put your own crawler code into image here
 # COPY xxx /home/work/webster_runtime/
