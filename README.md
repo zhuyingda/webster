@@ -8,6 +8,23 @@ Webster is a reliable web crawling and scraping framework written with Node.js, 
 
 Which is different from other crawling framework is that Webster can scrape the content which rendered by browser client side javascript and ajax request
 
+## Quick Start
+Let's start a simple crawler request to google website:
+```
+docker pull zhuyingda/webster-playground
+
+docker run --tty -e URL="https://www.google.com/robots.txt" zhuyingda/webster-playground node crawler.js
+
+# add cookie with sign-in session
+docker run --tty -e MOD=debug -e URL="https://www.google.com/robots.txt" -e Cookie="foo=1234; bar=abcd" zhuyingda/webster-playground node crawler.js
+
+# set user-agent
+docker run --tty -e URL="https://www.google.com/robots.txt" -e Cookie="foo=1234; bar=abcd" -e UA="Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36" zhuyingda/webster-playground node crawler.js
+
+# see crawling log
+docker run --tty -e MOD=debug -e URL="https://www.google.com/robots.txt" -e Cookie="foo=1234; bar=abcd" -e UA="Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36" zhuyingda/webster-playground node crawler.js
+```
+
 ## Requirements
 - Node.js 10.x+
 - Works on Linux, Mac OSX
