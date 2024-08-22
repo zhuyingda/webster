@@ -42,6 +42,5 @@ test
 benchmark
 
 # Docker config files
-Dockerfile
-Dockerfile.demo
+Dockerfile.*
 example

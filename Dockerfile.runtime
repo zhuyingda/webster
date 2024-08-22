@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 LABEL maintainer="Sugar yingdazhu@icloud.com"
-ARG nodever="16.20.2"
+ARG nodever="20.16.0"
 RUN apt-get update && apt-get install -y \
     curl \
     gpg \
@@ -37,6 +37,8 @@ RUN wget https://nodejs.org/dist/v${nodever}/node-v${nodever}-linux-x64.tar.xz \
     && ln -s /home/work/nodejs/bin/npm /usr/local/bin/npm \
     && ln -s /home/work/nodejs/bin/npx /usr/local/bin/npx \
     && rm /home/work/node-v${nodever}-linux-x64.tar
+RUN npm install -g npm
+RUN npx playwright install-deps
 USER work
 RUN mkdir /home/work/webster_startup
 WORKDIR /home/work/webster_startup
