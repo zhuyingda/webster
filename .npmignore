@@ -44,3 +44,6 @@ benchmark
 # Docker config files
 Dockerfile.*
 example
+
+.travis.yml
+.eslintrc.js
