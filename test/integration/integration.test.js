@@ -1,6 +1,6 @@
 const assert = require('assert');
 const proxyquire = require('proxyquire');
-const redisStub = require('../redis_stub');
+const redisStub = require('./redis_stub');
 const mockServer = require('../mock/server');
 const Consumer = proxyquire('../../lib/consumer', redisStub);
 const Producer = proxyquire('../../lib/producer', redisStub);

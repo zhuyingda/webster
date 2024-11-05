@@ -24,7 +24,8 @@ module.exports = {
                 throw new Error('stub-redis: error, invalid lpop tableName');
             }
             return new Promise((resolve) => {
-                resolve(mockRedisList[option.tableName].shift());
+                const item = mockRedisList[option.tableName].shift();
+                resolve(item);
             });
         },
         hset: function (option) {
