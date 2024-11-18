@@ -13,7 +13,7 @@ describe('puppeteer usage for cookie', function () {
         mockServer.close(MOCK_SERVER_PORT);
     });
 
-    it('puppeteer ua, viewport set usage', function (done) {
+    it('puppeteer set cookie: key-val for server', function (done) {
         const testCookieVal = 'abcdefg';
         puppeteer.request({
             url: `http://127.0.0.1:${MOCK_SERVER_PORT}/?num=3`,

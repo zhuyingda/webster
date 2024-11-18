@@ -13,7 +13,7 @@ describe('playwright usage for cookie', function () {
         mockServer.close(MOCK_SERVER_PORT);
     });
 
-    it('playwright ua, viewport set usage [chromium]', function (done) {
+    it('playwright set cookie: key-val for server [chromium]', function (done) {
         const testCookieVal = 'abcdefg';
         playwright.request({
             type: 'chromium',
@@ -42,7 +42,7 @@ describe('playwright usage for cookie', function () {
         });
     });
 
-    it('playwright ua, viewport set usage [firefox]', function (done) {
+    it('playwright set cookie: key-val for server [firefox]', function (done) {
         const testCookieVal = 'abcdefg';
         playwright.request({
             type: 'chromium',
@@ -71,7 +71,7 @@ describe('playwright usage for cookie', function () {
         });
     });
 
-    it('playwright ua, viewport set usage [webkit]', function (done) {
+    it('playwright set cookie: key-val for server [webkit]', function (done) {
         const testCookieVal = 'abcdefg';
         playwright.request({
             type: 'chromium',
