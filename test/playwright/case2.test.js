@@ -3,7 +3,7 @@ const mockServer = require('../mock/server');
 const playwright = require('../../lib/browser/playwright');
 const MOCK_SERVER_PORT = 8181;
 
-describe('playwright usage', function () {
+describe('playwright usage for click and w,h,ua', function () {
     this.timeout(60000);
 
     before(function () {
@@ -66,7 +66,7 @@ describe('playwright usage', function () {
 
     it('playwright ua, viewport set usage [firefox]', function (done) {
         const
-            setUA = 'test case webster',
+            setUA = 'test case webster2',
             setW = 1555,
             setH = 1001
             ;
@@ -117,7 +117,7 @@ describe('playwright usage', function () {
 
     it('playwright ua, viewport set usage [webkit]', function (done) {
         const
-            setUA = 'test case webster',
+            setUA = 'test case webster3',
             setW = 1555,
             setH = 1001
             ;
@@ -163,7 +163,6 @@ describe('playwright usage', function () {
             assert.strictEqual(Number(output.result.height[0].text), setH);
             assert.strictEqual(output.result.ua[0].text, setUA);
             done();
-            process.exit();
         });
     });
 

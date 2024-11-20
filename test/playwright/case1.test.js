@@ -3,7 +3,7 @@ const mockServer = require('../mock/server');
 const playwright = require('../../lib/browser/playwright');
 const MOCK_SERVER_PORT = 8181;
 
-describe('playwright usage', function () {
+describe('playwright usage for wait and selector', function () {
     this.timeout(60000);
 
     before(function () {

@@ -1,14 +1,14 @@
 const assert = require('assert');
 const proxyquire = require('proxyquire');
-const redisStub = require('../redis_stub');
+const redisStub = require('./redis_stub');
 const mockServer = require('../mock/server');
 const Consumer = proxyquire('../../lib/consumer', redisStub);
 const Producer = proxyquire('../../lib/producer', redisStub);
 const Task = require('../../lib/task');
 const REDIS_CONF = {
-    host: 'redis-12419.c44.us-east-1-2.ec2.cloud.redislabs.com',
-    port: 12419,
-    password: 'X2AcjziaOOYPppWFOPiP4rmzZ9RFLViv'
+    host: 'mock.redis.local',
+    port: 6379,
+    password: 'this is a mock password'
 };
 const MOCK_SERVER_PORT = 8181;
 const TEST_CHANNEL_1 = '_tc1_' + (Math.random() * 1000000).toFixed();

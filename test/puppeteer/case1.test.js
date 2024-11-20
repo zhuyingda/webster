@@ -3,7 +3,7 @@ const mockServer = require('../mock/server');
 const puppeteer = require('../../lib/browser/puppeteer');
 const MOCK_SERVER_PORT = 8181;
 
-describe('puppeteer usage', function () {
+describe('puppeteer usage for wait and selector', function () {
     this.timeout(60000);
 
     before(function () {
