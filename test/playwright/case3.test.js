@@ -97,7 +97,6 @@ describe('playwright usage for cookie', function () {
         }).then(output => {
             assert.strictEqual(output.result.cookie[0].text, testCookieVal);
             done();
-            process.exit(); // only here
         });
     });
 

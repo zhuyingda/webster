@@ -2,7 +2,6 @@ const assert = require('assert');
 const mockServer = require('../mock/server');
 const playwright = require('../../lib/browser/playwright');
 const MOCK_SERVER_PORT = 8181;
-// todo intruder cookie 这2个feature增加测试用例覆盖
 
 describe('playwright usage for wait and selector', function () {
     this.timeout(60000);

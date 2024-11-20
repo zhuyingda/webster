@@ -4,17 +4,23 @@ const path = require('path');
 const url = require('url');
 let inst = null;
 
-module.exports.listen = function (port) {
+module.exports.listen = webServer;
+function webServer(port) {
     if (inst !== null) {
         return;
     }
     inst = http.createServer(function (req, res) {
-        let ua = req.headers['user-agent'];
+        const ua = req.headers['user-agent'];
         const cookies = parseCookies(req.headers.cookie);
-        let query = url.parse(req.url, true).query;
-        let mockNum = +query.num;
+        const query = url.parse(req.url, true).query;
+        const mockNum = +query.num;
         let html = '<html><head></head><body>empty</nody></html>';
-        // console.log('get ut access, num', mockNum);
+
+        if (req.url === '/test1.js') {
+            res.writeHead(200, {'Content-Type': 'application/javascript; charset=utf-8'});
+            res.end(`document.getElementById('container').textContent = 'bar';`);
+            return;
+        }
         
         if (mockNum === 1) {
             html = fs.readFileSync(path.resolve(__dirname, `./mock${mockNum}.html`)).toString();
@@ -28,13 +34,17 @@ module.exports.listen = function (port) {
             const val = cookies.testCookie || 'unset';
             html = html.replace(/\{\{ cookieVal \}\}/, val);
         }
+        else if (mockNum === 4) {
+            html = fs.readFileSync(path.resolve(__dirname, `./mock${mockNum}.html`)).toString();
+        }
         else {
             html = '<html><head>wrong page</head><body>wrong page</nody></html>';
         }
         res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
         res.end(html);
     }).listen(port);
-};
+}
+// webServer(3002);
 
 function parseCookies(cookieHeader) {
     const cookies = {};
