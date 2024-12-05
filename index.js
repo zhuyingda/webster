@@ -13,43 +13,7 @@
  * SOFTWARE.
  */
 
-const log4js = require('log4js');
-const path = require('path');
-
-let configOption = {
-    appenders: {
-        webster: {}
-    },
-    categories: {
-        default: {
-            appenders: ['webster']
-        }
-    }
-};
-if (!!process.env.MOD) {
-    configOption.appenders.webster = {
-        type: 'stdout'
-    };
-    if (process.env.MOD === 'browser') {
-        configOption.categories.default.level = 'trace';
-    }
-    else {
-        configOption.categories.default.level = process.env.MOD;
-    }
-}
-else {
-    let curFile = require.main.filename.split('/');
-    curFile = curFile[curFile.length - 1];
-    if (/\.js$/.test(curFile)) {
-        curFile = curFile.replace(/\.js$/, '')
-    }
-    configOption.appenders.webster = {
-        type: 'file',
-        filename: path.resolve(process.env.HOME, `.webster/${curFile}.log`)
-    };
-    configOption.categories.default.level = 'info';
-}
-
-log4js.configure(configOption);
+const log = require('./lib/log');
+log.initLogger();
 
 module.exports = require('./lib/Webster');
